@@ -1,0 +1,122 @@
+﻿<Window x:Class="DrawingApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Drawing App" Height="400" Width="560" Background="White">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="60">
+            <TextBlock Text="Thickness" HorizontalAlignment="Center" Margin="0,15,0,5" FontSize="12" FontWeight="Bold"/>
+            <Slider 
+                Name="ThicknessSlider" 
+                Minimum="5" 
+                Maximum="30" 
+                Value="5" 
+                Orientation="Vertical" 
+                TickFrequency="1" 
+                IsSnapToTickEnabled="True" 
+                Height="80" Width="30" 
+                ValueChanged="ThicknessSlider_ValueChanged"/>
+
+            <TextBlock Text="Opacity" HorizontalAlignment="Center" Margin="0,15,0,5" FontSize="12" FontWeight="Bold"/>
+            <Slider 
+                Name="OpacitySlider" 
+                Minimum="0.1" 
+                Maximum="1" 
+                Value="1" 
+                Orientation="Vertical" 
+                TickFrequency="0.01" 
+                IsSnapToTickEnabled="False" 
+                SmallChange="0.01" 
+                LargeChange="0.05" 
+                Height="80" 
+                Width="30" 
+                ValueChanged="OpacitySlider_ValueChanged"/>
+        </StackPanel>
+
+        <Canvas Name="DrawingCanvas" 
+        Grid.Row="0" Grid.Column="1"
+        Background="White" 
+        MouseDown="DrawingCanvas_MouseDown" 
+        MouseMove="DrawingCanvas_MouseMove" 
+        MouseUp="DrawingCanvas_MouseUp"/>
+        
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Background="LightGray" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="40"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="Margin" Value="5"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <UniformGrid Rows="1" Columns="10" HorizontalAlignment="Center">
+                <Button Background="Black" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Gray" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="White" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Red" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Orange" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Yellow" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Green" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Blue" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Background="Purple" Click="ColorBox_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+
+                <Button Content="Clear" 
+                        Background="LightCoral" 
+                        Foreground="White" 
+                        FontWeight="Bold" 
+                        Click="ClearButton_Click">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+            </UniformGrid>
+        </StackPanel>
+    </Grid>
+</Window>
